@@ -18,7 +18,15 @@
   /*========== Font and typography ==========*/
   --body-font: 'Roboto', sans-serif;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: var(--body-color);
+  font-family: var(--body-font);
+}
 /*=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
 /*
@@ -117,8 +125,161 @@
 
 /*! NOE */
 
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home{
+  margin-bottom: 140px;
+}
+
+.home-container{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: flex-end;
+}
+
+.home-img-container{
+  display: flex;
+  align-items: flex-end;
+  width: 70%;
+  background-color: var(--first-color);
+  height: 350px;
+  margin-bottom: 30px;
+}
+
+.home-img{
+  width: 100%;
+}
+
+.home-texts{
+  
+}
+
+.home-title{
+  color: var(--title-color);
+  margin-bottom: 15px;
+}
+
+.home-paragraph{
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.home-price{
+  color: var(--first-color);
+  margin-bottom: 50px;
+}
+
+.home-btn{
+  text-decoration: none;
+}
+
+.home-btn-discover{
+  color: var(--title-color);
+  background-color: hsl(0, 0%, 75%);
+  padding: .7rem 1rem;
+}
+
+.home-btn-add{
+  color: #fff;
+  background-color: var(--button-color);
+  padding: 1rem 1rem;
+  font-weight: 600;
+  position: relative;
+  right: 5px;
+}
+
+.products-filter{
+  justify-content: center;
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 100px;
+  gap: 20px 10px;
+}
+
+.filter-options{
+  border-right: 2px solid var(--text-color-light);
+  color: var(--text-color);
+}
+
+.filter-name{
+  color: hsl(0, 0%, 23%);
+}
+
+.filter-quantity{
+  font-size: .9rem;
+}
+
+@media screen and (min-width: 1025px) {
+
+  .home-container{
+    flex-direction: row-reverse;
+    text-align: start;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+  }
+
+  .home-img-container{
+    height: 670px;
+    width: 470px;
+  }
+
+  .home-texts{
+    width: 400px;
+  }
+
+  .home-title{
+    font-size: 2.5rem;
+
+  }
+
+  .home-price{
+    font-size: 1.5rem;
+  }
+
+  .home-btn-discover{
+    padding: 1rem 1.3rem;
+    transition: .3s;
+    font-weight: 500;
+  }
+  
+  .home-btn-discover:hover{
+    background-color: var(--text-color-light);
+    color: white;
+  }
+
+  .home-btn-add{
+    padding: 1.2rem 1.8rem;
+    transition: .3s;
+  }
+  
+  .home-btn-add:hover{
+    background-color: var(--first-color);
+  }
+
+  .products-filter{
+    grid-template-columns: repeat(4, 200px);
+    justify-content: center;
+  }
+
+  .filter-options{
+    cursor: pointer;
+  }
+
+  .filter-name{
+    font-size: 1.25rem;
+  }
+
+  
 
 
+
+}
 
 
 
