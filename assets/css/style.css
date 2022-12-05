@@ -636,6 +636,7 @@ html{
   align-items: left;
   background-color:var(--container-color);
   border-radius: 1rem;
+  color: var(--text-color);
   
 }
 .product-pic{
