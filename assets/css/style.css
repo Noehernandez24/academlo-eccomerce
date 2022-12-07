@@ -82,7 +82,7 @@ header{
 
 .scroll-bar{
   background-color: var(--container-color);
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
   transition: 600ms;
 
 }
