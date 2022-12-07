@@ -28,9 +28,14 @@ const productos = [
     }
   ]
 
+function rmAll( Id ){
+    let productSelected = productos.find(product => product.id === Id)
+    let index = productos.indexOf(productSelected)
+    productos.splice(index, 1)
+    return productos
+}
 
-
-
+console.log(rmAll(2))
 
 // function sumCart( array ) {
 //     return sum = array.map( ele => ele.quantitySelected )
@@ -42,4 +47,4 @@ const productos = [
 //     return sum = array.map( ele => ele.quantitySelected * ele.price ).reduce((a, b) => a + b)
 // }
 
-// console.log( sumCartcash( productos ))
+// console.log( sumCartcash( productos ))<i class='bx bx-block'></i>

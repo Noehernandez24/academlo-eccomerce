@@ -174,12 +174,26 @@ function removeProducts(itemId) {
     cartProducts[index].quantitySelected--
   } 
 
-showProducts()
+    showProducts()
 
-document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
-document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
-document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
+    document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
+    document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
+    document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
 
+}
+
+
+
+function rmAll( itemId ){
+    let productSelected = cartProducts.find(product => product.id === itemId);
+    let index = cartProducts.indexOf(productSelected);
+    cartProducts.splice(index, 1);
+
+    showProducts();
+
+    document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts );
+    document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
+    document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
 }
 
 function showProducts() {
@@ -201,17 +215,10 @@ function showProducts() {
       <p class="cart-subtotal">Subtotal: $${product.quantitySelected * product.price}</p>
 
       <div class="cart-buttons">
-<<<<<<< HEAD
-        <button id="add-${product.id}" class="add button-styles">+</button>
-        <span id="span${product.id}" class="quantity-unit">${product.quantitySelected} units</span>
-        <button class="remove button-styles">-</button>
-        <button id="rm-${product.id}" class="remove-all button-styles"><i class='bx bx-block'></i></button>
-=======
         <button onclick="addProduct(${product.id})" id="add" class="add button-styles">+</button>
         <span class="quantity-unit">${product.quantitySelected} units</span>
         <button onclick="removeProducts(${product.id})" class="remove button-styles">-</button>
-        <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
->>>>>>> 75cf51bfd1f937ddd6e5eec6c7f783dcdfa91c02
+        <button onclick="rmAll(${product.id})" class="remove-all button-styles">x</button>
       </div>
 
     </div>
@@ -236,7 +243,7 @@ btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
 })
 
-const btn1 = document.getElementById( 'rm-3' )
+
 
 
 
