@@ -1,4 +1,4 @@
-const items = [
+const productos = [
     {
       id: 1,
       name: 'Hoodies',
@@ -28,14 +28,18 @@ const items = [
     }
   ]
 
-function sumCart( array ) {
-    return sum = array.map( ele => ele.quantitySelected )
-}
 
-console.log( sumCart( items ))
 
-function sumCartcash( array ) {
-    return sum = array.map( ele => ele.quantitySelected * ele.price ).reduce((a, b) => a + b)
-}
 
-console.log( sumCartcash( items ))
+
+// function sumCart( array ) {
+//     return sum = array.map( ele => ele.quantitySelected )
+// }
+
+// console.log( sumCart( productos ))
+
+// function sumCartcash( array ) {
+//     return sum = array.map( ele => ele.quantitySelected * ele.price ).reduce((a, b) => a + b)
+// }
+
+// console.log( sumCartcash( productos ))

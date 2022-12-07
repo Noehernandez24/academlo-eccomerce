@@ -44,7 +44,9 @@ const btnPlus3 = document.getElementById("plus-3")
 const total = document.getElementById("total-prices");
 const home = document.getElementById("home")
 const prod = document.getElementById("prod")
-const btnSum = document.getElementById ( 'add' )
+const btnPluss1 = document.getElementById("pluss-1")
+const btnPluss2 = document.getElementById("pluss-2")
+const btnPluss3 = document.getElementById("pluss-3")
 
 
 //CHANGE THEME
@@ -129,6 +131,11 @@ function sumCartcash( array ) {
 }
 
 
+
+
+
+
+
 function addProduct( itemId ) {
   //verificar si existe
 
@@ -160,14 +167,12 @@ document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts 
 
 
 
-
-
-
-
 function showProducts() {
   const content = document.getElementById("cart-content");
   let fragment = ""
+
   cartProducts.forEach( product => {
+
   fragment += `
   <!-- Carta inicio -->
   <section class="card-cart">
@@ -181,10 +186,10 @@ function showProducts() {
       <p class="cart-subtotal">Subtotal: $${product.quantitySelected * product.price}</p>
 
       <div class="cart-buttons">
-        <button id="add" class="add button-styles">+</button>
-        <span class="quantity-unit">${product.quantitySelected} units</span>
+        <button id="add-${product.id}" class="add button-styles">+</button>
+        <span id="span${product.id}" class="quantity-unit">${product.quantitySelected} units</span>
         <button class="remove button-styles">-</button>
-        <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
+        <button id="rm-${product.id}" class="remove-all button-styles"><i class='bx bx-block'></i></button>
       </div>
 
     </div>
@@ -195,6 +200,7 @@ function showProducts() {
 
  content.innerHTML = fragment
 }
+
 
 btnPlus1.addEventListener("click", (e) =>{
   addProduct(1)
@@ -207,6 +213,12 @@ btnPlus2.addEventListener("click", (e) =>{
 btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
 })
+
+const btn1 = document.getElementById( 'rm-3' )
+
+
+
+
 
 
 
