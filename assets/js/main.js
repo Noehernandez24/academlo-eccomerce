@@ -46,6 +46,7 @@ const home = document.getElementById("home")
 const prod = document.getElementById("prod")
 const btnSum = document.getElementById ( 'add' )
 const emptyCart = document.getElementById("empty-cart")
+const content = document.getElementById("cart-content");
 
 
 //CHANGE THEME
@@ -176,11 +177,43 @@ document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts 
 }
 
 
+function rmAll( itemId ){
+  let productSelected = cartProducts.find(product => product.id === itemId);
+  let index = cartProducts.indexOf(productSelected);
+  cartProducts.splice(index, 1);
+  
+  if ( cartProducts.length === 0 ){
+
+      document.getElementById( 'shop-counter' ).innerHTML = '0';
+      document.getElementById( 'total-items' ).innerHTML = '0';
+      document.getElementById( 'total-prices' ).innerHTML = '0';
+      content.innerHTML = `
+      <section class="empty-cart">
+      <img  class="empty-cart-img" src="./assets/images/empty-cart.png" alt="empty-cart">
+      <div class="text-empty-cart">
+        <h4>Your cart is empty</h4><br>
+        <p class="text-empty">You can add items to your cart by clicking on the '+' button on the product page.</p>
+      </div>
+  
+    </section>`
+      
+      
+      
+     
+  }else{
+      showProducts()
+      
+      document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts );
+      document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
+      document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
+  }
+  
+}
 
 
 
 function showProducts() {
-  const content = document.getElementById("cart-content");
+  
   let fragment = ""
   cartProducts.forEach( product => {
   fragment += `
@@ -199,7 +232,7 @@ function showProducts() {
         <button onclick="addProduct(${product.id})" id="add" class="add button-styles">+</button>
         <span class="quantity-unit">${product.quantitySelected} units</span>
         <button onclick="removeProducts(${product.id})" class="remove button-styles">-</button>
-        <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
+        <button onclick="rmAll(${product.id})" class="remove-all button-styles"><i class='bx bx-block'></i></button>
       </div>
 
     </div>
@@ -213,17 +246,17 @@ function showProducts() {
 
 btnPlus1.addEventListener("click", (e) =>{
   addProduct(1)
-  emptyCart.classList.add("hide")
+  
 })
 
 btnPlus2.addEventListener("click", (e) =>{
   addProduct(2)
-  emptyCart.classList.add("hide")
+  
 })
 
 btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
-  emptyCart.classList.add("hide")
+  
 })
 
 
