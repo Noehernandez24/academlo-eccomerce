@@ -601,6 +601,10 @@ html{
   cursor: pointer;
 }
 
+.hide{
+  display: none;
+}
+
 @media screen and (min-width: 1024px) {
 
   .home-container{
