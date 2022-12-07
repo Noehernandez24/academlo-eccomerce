@@ -142,7 +142,7 @@ li{
 
 .icons-bar{
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
 
 }
@@ -197,7 +197,26 @@ li{
   
 }
 
+.menu-box{
+  background-color: var(--container-color);
+  width: 100%;
+  height: 100%;
+  max-width: 425px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: -4px 5px 10px rgb(147, 147, 147);
+  padding: 2.5rem 1.5rem 1rem 1.5rem;
+  
+}
+
 .cart-close{
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.menu-close{
   position: absolute;
   top: 1rem;
   right: 1.5rem;
@@ -205,6 +224,18 @@ li{
 
 .cart-shop{
   position: relative;
+}
+
+.menu-hide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 1rem
+}
+
+.menu-hide a:hover{
+  color: var(--first-color);
 }
 
 .shop-counter{
@@ -236,6 +267,11 @@ li{
     gap: 1.5rem;
     font-weight: bold;
     font-size: 1rem;
+  }
+
+  .icons-bar{
+    padding-right: 1rem;
+
   }
 
   header{

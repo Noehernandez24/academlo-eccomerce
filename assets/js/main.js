@@ -35,15 +35,16 @@ const shopClose = document.getElementById( 'close-cart' )
 const menuOpen = document.getElementById( 'menu-btn' )
 const menuClose = document.getElementById( 'menu-close' )
 const cartContainer = document.getElementById( 'cart-container' )
+const boxContainer = document.getElementById( 'container-box' )
 const allProducts = document.getElementById("products")
 const loader = document.getElementById("loader")
 const btnPlus1 = document.getElementById("plus-1")
 const btnPlus2 = document.getElementById("plus-2")
 const btnPlus3 = document.getElementById("plus-3")
 const total = document.getElementById("total-prices");
-
-
-
+const home = document.getElementById("home")
+const prod = document.getElementById("prod")
+const btnSum = document.getElementById ( 'add' )
 
 
 //CHANGE THEME
@@ -58,25 +59,33 @@ themeBtn.addEventListener( 'click', e => {
     }
   })
 
-//OPEN CART
+//OPEN VENTANAS
 
 shopOpen.addEventListener( 'click', e => {
   cartContainer.classList.remove( 'hide' )
 })
 
 menuOpen.addEventListener( 'click', e => {
-  cartContainer.classList.remove( 'hide' )
+  boxContainer.classList.remove( 'hide' )
 })
 
 
-//CLOSE CART
+//CLOSE VENTANAS
 
 shopClose.addEventListener( 'click', e => {
   cartContainer.classList.add( 'hide' )
 })
 
 menuClose.addEventListener( 'click', e => {
-  cartContainer.classList.add( 'hide' )
+  boxContainer.classList.add( 'hide' )
+})
+
+home.addEventListener( 'click', e => {
+  boxContainer.classList.add( 'hide' )
+})
+
+prod.addEventListener( 'click', e => {
+  boxContainer.classList.add( 'hide' )
 })
 
 //NAVBAR SCROLL
@@ -108,10 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const cartProducts = []
 
-function addProduct(itemId) {
+function addProduct( itemId ) {
   //verificar si existe
 
-  let productSelected = cartProducts.find(product => product.id === itemId)
+  let productSelected = cartProducts.find( product => product.id === itemId)
 
   if (productSelected) { // !== undefined es decir que existe
     
@@ -125,14 +134,18 @@ function addProduct(itemId) {
     cartProducts.push(item);
     
   }
+
   showProducts()
 
 }
 
+
+
+
 function showProducts() {
   const content = document.getElementById("cart-content");
   let fragment = ""
-  cartProducts.forEach(product => {
+  cartProducts.forEach( product => {
   fragment += `
   <!-- Carta inicio -->
   <section class="card-cart">
@@ -143,10 +156,10 @@ function showProducts() {
     <div class="cart-texts">
       <p class="cart-name">"${product.name}"</p>
       <p class="cart-stock">Stock: ${product.quantity}| <span>$${product.price}</span> </p>
-      <p class="cart-subtotal">Subtotal: $${0.00}</p>
+      <p class="cart-subtotal">Subtotal: $${product.quantitySelected * product.price}</p>
 
       <div class="cart-buttons">
-        <button class="add button-styles">+</button>
+        <button id="add" class="add button-styles">+</button>
         <span class="quantity-unit">${product.quantitySelected} units</span>
         <button class="remove button-styles">-</button>
         <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
@@ -172,4 +185,6 @@ btnPlus2.addEventListener("click", (e) =>{
 btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
 })
+
+
 
