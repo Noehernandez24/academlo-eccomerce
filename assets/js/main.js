@@ -158,7 +158,22 @@ document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts 
 }
 
 
+function removeProducts(itemId) {
+  let productSelected = cartProducts.find(product => product.id === itemId)
+  let index = cartProducts.indexOf(productSelected)
+  let hide = ""
 
+  if (productSelected.quantitySelected > 1) {
+    cartProducts[index].quantitySelected--
+  } 
+
+showProducts()
+
+document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
+document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
+document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
+
+}
 
 
 
@@ -181,9 +196,9 @@ function showProducts() {
       <p class="cart-subtotal">Subtotal: $${product.quantitySelected * product.price}</p>
 
       <div class="cart-buttons">
-        <button id="add" class="add button-styles">+</button>
+        <button onclick="addProduct(${product.id})" id="add" class="add button-styles">+</button>
         <span class="quantity-unit">${product.quantitySelected} units</span>
-        <button class="remove button-styles">-</button>
+        <button onclick="removeProducts(${product.id})" class="remove button-styles">-</button>
         <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
       </div>
 
