@@ -44,18 +44,9 @@ const btnPlus3 = document.getElementById("plus-3")
 const total = document.getElementById("total-prices");
 const home = document.getElementById("home")
 const prod = document.getElementById("prod")
-<<<<<<< HEAD
-const btnPluss1 = document.getElementById("pluss-1")
-const btnPluss2 = document.getElementById("pluss-2")
-const btnPluss3 = document.getElementById("pluss-3")
-
-
-=======
 const btnSum = document.getElementById ( 'add' )
-const cardProduct = document.getElementById ( 'card-product' )
-const clothes = document.getElementsByClassName ( 'clothes' )
-const clothesMovement  = document.getElementsByClassName ( 'clothes-movement')
->>>>>>> f1f9dc4a8bd8fae90a445cec8f7dcfd066da5d8a
+
+
 //CHANGE THEME
 
 themeBtn.addEventListener( 'click', e => {
@@ -138,11 +129,6 @@ function sumCartcash( array ) {
 }
 
 
-
-
-
-
-
 function addProduct( itemId ) {
   //verificar si existe
 
@@ -181,21 +167,22 @@ function removeProducts(itemId) {
     cartProducts[index].quantitySelected--
   } 
 
-    showProducts()
+showProducts()
 
-    document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
-    document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
-    document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
+document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
+document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
+document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
 
 }
+
+
+
 
 
 function showProducts() {
   const content = document.getElementById("cart-content");
   let fragment = ""
-
   cartProducts.forEach( product => {
-
   fragment += `
   <!-- Carta inicio -->
   <section class="card-cart">
@@ -212,7 +199,7 @@ function showProducts() {
         <button onclick="addProduct(${product.id})" id="add" class="add button-styles">+</button>
         <span class="quantity-unit">${product.quantitySelected} units</span>
         <button onclick="removeProducts(${product.id})" class="remove button-styles">-</button>
-        <button onclick="rmAll( ${product.id} )" class="remove-all button-styles"><i class='bx bx-block'></i></button>
+        <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
       </div>
 
     </div>
@@ -223,21 +210,6 @@ function showProducts() {
 
  content.innerHTML = fragment
 }
-
-function rmAll( itemId ){
-    let productSelected = cartProducts.find(product => product.id === itemId);
-    let index = cartProducts.indexOf(productSelected);
-    cartProducts.splice(index, 1);
-
-    showProducts()
-
-    document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts );
-    document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
-    document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
-}
-
-
-
 
 btnPlus1.addEventListener("click", (e) =>{
   addProduct(1)
@@ -251,21 +223,5 @@ btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
 })
 
-cardProduct.addEventListener('OnMouseOver', (e) => {
-clothes.classList.toogle('clothes-movement')
-})
-
-<<<<<<< HEAD
 
 
-
-
-
-
-
-=======
-cardProduct.addEventListener('OnMouseOut', (e) => {
-  clothes.classList.remove('clothes-movement')
-  })
-  
->>>>>>> f1f9dc4a8bd8fae90a445cec8f7dcfd066da5d8a
