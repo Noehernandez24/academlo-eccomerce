@@ -63,6 +63,7 @@ themeBtn.addEventListener( 'click', e => {
 
 shopOpen.addEventListener( 'click', e => {
   cartContainer.classList.remove( 'hide' )
+
 })
 
 menuOpen.addEventListener( 'click', e => {
@@ -117,6 +118,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const cartProducts = []
 
+
+
+function sumCart( array ) {
+    return sum = array.map( ele => ele.quantitySelected ).reduce((a, b) => a + b)
+}
+
+function sumCartcash( array ) {
+    return sum = array.map( ele => ele.quantitySelected * ele.price ).reduce((a, b) => a + b)
+}
+
+
 function addProduct( itemId ) {
   //verificar si existe
 
@@ -135,9 +147,19 @@ function addProduct( itemId ) {
     
   }
 
+
+
   showProducts()
 
+document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
+document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
+document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
+
 }
+
+
+
+
 
 
 

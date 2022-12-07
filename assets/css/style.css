@@ -147,6 +147,10 @@ li{
 
 }
 
+.shop-counter{
+    font-size: 12px;
+}
+
 .cart-container{
   background-color: rgba(136, 130, 130, 0.37);
   color: var(--title-color);
