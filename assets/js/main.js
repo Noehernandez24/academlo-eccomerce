@@ -45,6 +45,7 @@ const total = document.getElementById("total-prices");
 const home = document.getElementById("home")
 const prod = document.getElementById("prod")
 const btnSum = document.getElementById ( 'add' )
+const emptyCart = document.getElementById("empty-cart")
 
 
 //CHANGE THEME
@@ -161,7 +162,6 @@ document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts 
 function removeProducts(itemId) {
   let productSelected = cartProducts.find(product => product.id === itemId)
   let index = cartProducts.indexOf(productSelected)
-  let hide = ""
 
   if (productSelected.quantitySelected > 1) {
     cartProducts[index].quantitySelected--
@@ -213,14 +213,17 @@ function showProducts() {
 
 btnPlus1.addEventListener("click", (e) =>{
   addProduct(1)
+  emptyCart.classList.add("hide")
 })
 
 btnPlus2.addEventListener("click", (e) =>{
   addProduct(2)
+  emptyCart.classList.add("hide")
 })
 
 btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
+  emptyCart.classList.add("hide")
 })
 
 
