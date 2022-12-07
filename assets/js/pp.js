@@ -48,3 +48,15 @@ const productos = [
 // }
 
 // console.log( sumCartcash( productos ))<i class='bx bx-block'></i>
+
+// function rmAll( itemId ){
+//     let productSelected = cartProducts.find(product => product.id === itemId);
+//     let index = cartProducts.indexOf(productSelected);
+//     cartProducts.splice(index, 1);
+
+//     showProducts()
+
+//     document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts );
+//     document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
+//     document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
+// }

@@ -44,11 +44,18 @@ const btnPlus3 = document.getElementById("plus-3")
 const total = document.getElementById("total-prices");
 const home = document.getElementById("home")
 const prod = document.getElementById("prod")
+<<<<<<< HEAD
 const btnPluss1 = document.getElementById("pluss-1")
 const btnPluss2 = document.getElementById("pluss-2")
 const btnPluss3 = document.getElementById("pluss-3")
 
 
+=======
+const btnSum = document.getElementById ( 'add' )
+const cardProduct = document.getElementById ( 'card-product' )
+const clothes = document.getElementsByClassName ( 'clothes' )
+const clothesMovement  = document.getElementsByClassName ( 'clothes-movement')
+>>>>>>> f1f9dc4a8bd8fae90a445cec8f7dcfd066da5d8a
 //CHANGE THEME
 
 themeBtn.addEventListener( 'click', e => {
@@ -244,6 +251,11 @@ btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
 })
 
+cardProduct.addEventListener('OnMouseOver', (e) => {
+clothes.classList.toogle('clothes-movement')
+})
+
+<<<<<<< HEAD
 
 
 
@@ -251,4 +263,9 @@ btnPlus3.addEventListener("click", (e) =>{
 
 
 
-
+=======
+cardProduct.addEventListener('OnMouseOut', (e) => {
+  clothes.classList.remove('clothes-movement')
+  })
+  
+>>>>>>> f1f9dc4a8bd8fae90a445cec8f7dcfd066da5d8a

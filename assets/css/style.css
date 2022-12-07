@@ -833,9 +833,11 @@ html{
   align-items: left;
   background-color:var(--container-color);
   border-radius: 1rem;
-  color: var(--text-color);
-  
+  color: var(--text-color);  
 }
+
+
+
 .product-pic{
   background-color: var(--card-color);
   padding: 2.5rem;
@@ -843,9 +845,17 @@ html{
   position: relative;
 }
 
+
 .clothes{
+  position: relative;
   max-width: calc(300px - 3rem);
 }
+
+.clothes.clothes-movement{
+  position: relative;
+  top: 30px
+}
+
 
 .plus-btn{
   position: absolute;
