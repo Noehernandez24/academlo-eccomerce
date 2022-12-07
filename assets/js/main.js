@@ -29,6 +29,8 @@ const themeBtn = document.getElementById( 'theme-btn' );
 const body = document.body
 const shopOpen = document.getElementById( 'shop-btn' )
 const shopClose = document.getElementById( 'close-cart' )
+const menuOpen = document.getElementById( 'menu-btn' )
+const menuClose = document.getElementById( 'menu-close' )
 const cartContainer = document.getElementById( 'cart-container' )
 const allProducts = document.getElementById("products")
 const loader = document.getElementById("loader")
@@ -53,9 +55,18 @@ shopOpen.addEventListener( 'click', e => {
   cartContainer.classList.remove( 'hide' )
 })
 
+menuOpen.addEventListener( 'click', e => {
+  cartContainer.classList.remove( 'hide' )
+})
+
+
 //CLOSE CART
 
 shopClose.addEventListener( 'click', e => {
+  cartContainer.classList.add( 'hide' )
+})
+
+menuClose.addEventListener( 'click', e => {
   cartContainer.classList.add( 'hide' )
 })
 

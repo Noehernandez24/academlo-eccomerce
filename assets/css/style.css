@@ -82,7 +82,7 @@ header{
 
 .scroll-bar{
   background-color: var(--container-color);
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
   transition: 600ms;
 
 }
@@ -142,7 +142,7 @@ li{
 
 .icons-bar{
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
 
 }
@@ -160,7 +160,26 @@ li{
 
 }
 
+.container-box{
+  background-color: rgba(136, 130, 130, 0.37);
+  color: var(--title-color);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 51;
+  transition: 600ms;
+
+}
+
+
 .cart-container.hide{
+  left: -100%;
+  
+}
+
+.container-box.hide{
   left: -100%;
   
 }
@@ -169,7 +188,7 @@ li{
   background-color: var(--container-color);
   width: 100%;
   height: 100%;
-  max-width: 400px;
+  max-width: 425px;
   position: absolute;
   top: 0;
   right: 0;
