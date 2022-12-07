@@ -836,6 +836,10 @@ html{
   color: var(--text-color);  
 }
 
+.card-product:hover .clothes{
+  transform: translateY(-.25rem);
+  transition: 0.5s;
+}
 
 
 .product-pic{
@@ -893,7 +897,7 @@ html{
 .product-description h3,h4{
   font-weight:normal;
  }
-
+gi
  .product-description h4{
 grid-column: 1/3; 
 }
