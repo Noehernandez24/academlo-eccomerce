@@ -5,7 +5,8 @@ const items = [
       price: 14.00,
       image: 'assets/images/featured1.png',
       category: 'hoodies',
-      quantity: 10
+      quantity: 10,
+      quantitySelected: 0
     },
     {
       id: 2,
@@ -13,7 +14,8 @@ const items = [
       price: 24.00,
       image: 'assets/images/featured2.png',
       category: 'shirts',
-      quantity: 15
+      quantity: 15,
+      quantitySelected: 0
     },
     {
       id: 3,
@@ -21,7 +23,8 @@ const items = [
       price: 24.00,
       image: 'assets/images/featured3.png',
       category: 'shirts',
-      quantity: 20
+      quantity: 20,
+      quantitySelected: 0
     }
   ]
 
@@ -34,6 +37,12 @@ const menuClose = document.getElementById( 'menu-close' )
 const cartContainer = document.getElementById( 'cart-container' )
 const allProducts = document.getElementById("products")
 const loader = document.getElementById("loader")
+const btnPlus1 = document.getElementById("plus-1")
+const btnPlus2 = document.getElementById("plus-2")
+const btnPlus3 = document.getElementById("plus-3")
+const total = document.getElementById("total-prices");
+
+
 
 
 
@@ -77,60 +86,6 @@ window.addEventListener('scroll', () => {
   })
 
 
-// UTILIZAR UN METODO FOREACH PARA RECORRER TODO EL ARREGLO DE PRODUCTOS E INSERTAR A CADA UNO CON SU RESPECTIVO VALOR EN EL DOM
-items.forEach(element => {
-
-//-------CREATE PRODUCTS ELEMENTS HTML----------------------
-
-const cardProduct = document.createElement("div")
-cardProduct.classList.add("card-product")
-
-const productPict = document.createElement("div")
-productPict.classList.add("product-pic")
-
-const imageClothes = document.createElement("img")
-imageClothes.classList.add("clothes")
-
-const plusBtn = document.createElement("button")
-plusBtn.classList.add("plus-btn")
-plusBtn.textContent = "+"
-
-const productDescription = document.createElement("div")
-productDescription.classList.add("product-description")
-
-const stock = document.createElement("span")
-
-const price = document.createElement("h3")
-
-const name = document.createElement("h4")
-
-
-//MODIFICACIÓN DE VALOR DE CADA ELEMENTO
-
-imageClothes.src = `${element.image}`
-price.textContent = `$${element.price}`
-stock.textContent = `| stock:${element.quantity}`
-name.textContent = `${element.name}`
-
-//-----INSERTANDO ELEMENTOS AL DOM--------
-
-//METER ELEMENTOS AL CONTENEDOR DE LA IMAGEN
-productPict.appendChild(imageClothes)
-productPict.appendChild(plusBtn)
-
-//METER ELEMENTOS AL CONTENEDOR DE LA DESCRIPCIÓN
-productDescription.appendChild(price)
-productDescription.appendChild(stock)
-productDescription.appendChild(name)
-
-//METER LOS CONTENEDORES DE IMAGEN Y DESCRIPCION AL CONTENEDOR PRINCIPAL (CARD)
-cardProduct.appendChild(productPict)
-cardProduct.appendChild(productDescription)
-
-//METER EL CONTENDOR PRINCIPAL (CARD) A LA SECCION
-allProducts.appendChild(cardProduct)
-});
-
 //LOADER
 
 const loaderComponent = () =>{
@@ -149,8 +104,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-  
+//AÑADIR PRODUCTOS
 
+const cartProducts = []
 
- 
+function addProduct(itemId) {
+  //verificar si existe
+
+  let productSelected = cartProducts.find(product => product.id === itemId)
+
+  if (productSelected) { // !== undefined es decir que existe
+    
+    let index = cartProducts.indexOf(productSelected);
+    cartProducts[index].quantitySelected++
+
+  } else{
+
+    const item = items.find(item => item.id === itemId)
+    item.quantitySelected = 1;
+    cartProducts.push(item);
+    
+  }
+  showProducts()
+
+}
+
+function showProducts() {
+  const content = document.getElementById("cart-content");
+  let fragment = ""
+  cartProducts.forEach(product => {
+  fragment += `
+  <!-- Carta inicio -->
+  <section class="card-cart">
+    <div class="image-product-container">
+      <img src="${product.image}" alt="#" class="cart-product-img">
+    </div>
+
+    <div class="cart-texts">
+      <p class="cart-name">"${product.name}"</p>
+      <p class="cart-stock">Stock: ${product.quantity}| <span>$${product.price}</span> </p>
+      <p class="cart-subtotal">Subtotal: $${0.00}</p>
+
+      <div class="cart-buttons">
+        <button class="add button-styles">+</button>
+        <span class="quantity-unit">${product.quantitySelected} units</span>
+        <button class="remove button-styles">-</button>
+        <button class="remove-all button-styles"><i class='bx bx-block'></i></button>
+      </div>
+
+    </div>
+  </section>
+  <!-- Carta final -->
+  `
+ })
+
+ content.innerHTML = fragment
+}
+
+btnPlus1.addEventListener("click", (e) =>{
+  addProduct(1)
+})
+
+btnPlus2.addEventListener("click", (e) =>{
+  addProduct(2)
+})
+
+btnPlus3.addEventListener("click", (e) =>{
+  addProduct(3)
+})
 

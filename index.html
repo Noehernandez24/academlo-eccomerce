@@ -52,7 +52,7 @@
     <!-- JS -->
 
     <!-- LOADER -->
-    <div class="loader" id="loader">
+    <div class="loader hide" id="loader">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
         <title>Academlo Logo</title>
         <g>
@@ -111,11 +111,41 @@
       </nav>
     </header>
     <div class="cart-container hide" id="cart-container">
+
       <div class="cart" id="cart">
+
         <div class="cart-close" id="close-cart">
           <i class='bx bx-x'></i>
         </div>
+
+        <!-- CONTENIDO DEL CARRITO -->
+
+        <!-- TITULO -->
+        <h3 class="cart-title">My cart</h3>
+
+        <!-- CONTEDOR PRINCIPAL DE LAS CARDS EN EL CARRITO -->
+        <article class="cart-content" id="cart-content">
+
+        </article>
+
+      <!-- Información del carrito (Total y checkout) -->
+        <div class="cart-info">
+          <section class="cart-total">
+            <p class="number-items"><span id="total-items">0</span> items</p>
+            <p class="number-price">$<span id="total-prices">0.00</span></p>
+          </section>
+            
+          <div class="buttom-container">
+            <p class="chekout-button">
+              <i class='bx bx-check-shield'></i>Checkout
+            </p>
+          </div>
+         
+        </div>
+      
       </div>
+
+
     </div>
 
     <div class="container-box hide" id="container-box">
@@ -372,17 +402,41 @@
 
   <section class="all-products" id="products">
 
-    <!-- <div class="card-product" >
+    <div class="card-product" >
       <div class="product-pic">
         <img class="clothes" src="./assets/images/featured1.png" alt="hoodies">
-        <button class="plus-btn">+</button>
+        <button class="plus-btn" id="plus-1">+</button>
       </div>
       <div class="product-description">
         <h3>$14.00</h3>
-        <span>| Stock: 1</span> 
+        <span>| Stock: 10</span> 
         <h4>Hoodies</h4>
       </div>
-    </div> -->
+    </div>
+
+    <div class="card-product" >
+      <div class="product-pic">
+        <img class="clothes" src="./assets/images/featured2.png" alt="hoodies">
+        <button class="plus-btn" id="plus-2">+</button>
+      </div>
+      <div class="product-description">
+        <h3>$24.00</h3>
+        <span>| Stock: 15</span> 
+        <h4>Shirts</h4>
+      </div>
+    </div>
+
+    <div class="card-product" >
+      <div class="product-pic">
+        <img class="clothes" src="./assets/images/featured3.png" alt="hoodies">
+        <button class="plus-btn" id="plus-3">+</button>
+      </div>
+      <div class="product-description">
+        <h3>$24.00</h3>
+        <span>| Stock: 20</span> 
+        <h4>Sweatshirts</h4>
+      </div>
+    </div>
    
   </section>
 
