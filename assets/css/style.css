@@ -174,6 +174,7 @@ li{
   top: 0;
   right: 0;
   box-shadow: -4px 5px 10px rgb(147, 147, 147);
+  padding: 2.5rem 1.5rem 1rem 1.5rem;
   
 }
 
@@ -443,6 +444,104 @@ html{
   }
 }
 
+/* CONTENIDO DEL CARRITO */
+
+.cart-title{
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.cart-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  gap: 20px;
+}
+
+.card-cart{
+  display: flex;
+}
+
+.cart-info{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.cart-total{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.buttom-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.chekout-button{
+  background-color:var(--card-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding:1rem;
+  color:var(--text-color-light);
+  border: none;
+  font-size: medium;
+  width: 50%;
+}
+
+
+.cart-product-img{
+  width: 100px;
+}
+
+.cart-texts{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.cart-buttons{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-styles{
+  width: 30px;
+  height: 30px;
+}
+
+.remove-all{
+  margin-left: 20px;
+}
+
+.bx-block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+/* Agregando cursor pointer a los iconos clickeables */
+
+.bx{
+  cursor: pointer;
+}
+
+.shop-counter{
+  cursor: pointer;
+}
+
 @media screen and (min-width: 1024px) {
 
   .home-container{
@@ -697,6 +796,7 @@ html{
   font-size: xx-large;
   font-weight: lighter;
   color:var(--text-color);
+  cursor: pointer;
 }
 
 .plus-btn:hover{
