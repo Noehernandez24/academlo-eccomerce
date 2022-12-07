@@ -183,19 +183,6 @@ function removeProducts(itemId) {
 }
 
 
-
-function rmAll( itemId ){
-    let productSelected = cartProducts.find(product => product.id === itemId);
-    let index = cartProducts.indexOf(productSelected);
-    cartProducts.splice(index, 1);
-
-    showProducts();
-
-    document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts );
-    document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
-    document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
-}
-
 function showProducts() {
   const content = document.getElementById("cart-content");
   let fragment = ""
@@ -218,7 +205,7 @@ function showProducts() {
         <button onclick="addProduct(${product.id})" id="add" class="add button-styles">+</button>
         <span class="quantity-unit">${product.quantitySelected} units</span>
         <button onclick="removeProducts(${product.id})" class="remove button-styles">-</button>
-        <button onclick="rmAll(${product.id})" class="remove-all button-styles">x</button>
+        <button onclick="rmAll( ${product.id} )" class="remove-all button-styles"><i class='bx bx-block'></i></button>
       </div>
 
     </div>
@@ -229,6 +216,20 @@ function showProducts() {
 
  content.innerHTML = fragment
 }
+
+function rmAll( itemId ){
+    let productSelected = cartProducts.find(product => product.id === itemId);
+    let index = cartProducts.indexOf(productSelected);
+    cartProducts.splice(index, 1);
+
+    showProducts()
+
+    document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts );
+    document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
+    document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
+}
+
+
 
 
 btnPlus1.addEventListener("click", (e) =>{
