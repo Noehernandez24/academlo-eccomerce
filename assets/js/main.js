@@ -137,9 +137,13 @@ function addProduct( itemId ) {
   let productSelected = cartProducts.find( product => product.id === itemId)
 
   if (productSelected) { // !== undefined es decir que existe
+    if (productSelected.quantitySelected < productSelected.quantity) { //condicion para saber si la cantidad selecionada no excede al stock
+      let index = cartProducts.indexOf(productSelected);
+      cartProducts[index].quantitySelected++
+    } else{
+      alert("¡No puede agregar mas productos porque ya no hay en stock!")
+    }
     
-    let index = cartProducts.indexOf(productSelected);
-    cartProducts[index].quantitySelected++
 
   } else{
 
@@ -165,14 +169,17 @@ function removeProducts(itemId) {
   let index = cartProducts.indexOf(productSelected)
 
   if (productSelected.quantitySelected > 1) {
-    cartProducts[index].quantitySelected--
-  } 
+    cartProducts[index].quantitySelected--;
+    showProducts();
 
-showProducts()
+    document.getElementById("shop-counter").innerHTML = sumCart(cartProducts);
+    document.getElementById("total-items").innerHTML = sumCart(cartProducts);
+    document.getElementById("total-prices").innerHTML = sumCartcash(cartProducts);
+  } else{
+    rmAll()
+  }
 
-document.getElementById( 'shop-counter' ).innerHTML = sumCart( cartProducts )
-document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts )
-document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts )
+
 
 }
 
