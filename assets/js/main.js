@@ -170,15 +170,14 @@ function removeProducts(itemId) {
 
   if (productSelected.quantitySelected > 1) {
     cartProducts[index].quantitySelected--;
-    showProducts();
 
-    document.getElementById("shop-counter").innerHTML = sumCart(cartProducts);
-    document.getElementById("total-items").innerHTML = sumCart(cartProducts);
-    document.getElementById("total-prices").innerHTML = sumCartcash(cartProducts);
-  } else{
-    rmAll()
-  }
+  } 
 
+  showProducts();
+
+  document.getElementById("shop-counter").innerHTML = sumCart(cartProducts);
+  document.getElementById("total-items").innerHTML = sumCart(cartProducts);
+  document.getElementById("total-prices").innerHTML = sumCartcash(cartProducts);
 
 
 }
