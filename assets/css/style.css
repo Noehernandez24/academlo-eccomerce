@@ -851,14 +851,11 @@ html{
 
 
 .clothes{
-  position: relative;
+
   max-width: calc(300px - 3rem);
 }
 
-.clothes.clothes-movement{
-  position: relative;
-  top: 30px
-}
+
 
 
 .plus-btn{
@@ -897,7 +894,7 @@ html{
 .product-description h3,h4{
   font-weight:normal;
  }
-gi
+
  .product-description h4{
 grid-column: 1/3; 
 }
