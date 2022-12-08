@@ -218,6 +218,7 @@ li{
   position: absolute;
   top: 1rem;
   right: 1.5rem;
+  z-index: 200;
 }
 
 .menu-close{
