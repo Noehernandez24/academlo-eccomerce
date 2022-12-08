@@ -60,3 +60,5 @@ const productos = [
 //     document.getElementById( 'total-items' ).innerHTML = sumCart( cartProducts );
 //     document.getElementById( 'total-prices' ).innerHTML = sumCartcash( cartProducts );
 // }
+
+//HOLLLLLLAA
