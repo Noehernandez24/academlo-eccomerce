@@ -558,6 +558,11 @@ html{
   cursor: pointer;
 }
 
+.chekout-button:hover{
+  background-color: var(--first-color);
+  color: var(--container-color);
+}
+
 
 .cart-product-img{
   width: 100px;
