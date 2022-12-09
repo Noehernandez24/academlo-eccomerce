@@ -264,6 +264,27 @@ function detectHoverCheckout() {
   }
 }
 
+function clickCheckoutStock() {
+  let productsValueArray = cartProducts.length
+
+  if (cartProducts.length > 0) {
+    cartProducts.splice(0, productsValueArray)
+    document.getElementById( 'shop-counter' ).innerHTML = '0';
+    document.getElementById( 'total-items' ).innerHTML = '0';
+    document.getElementById( 'total-prices' ).innerHTML = '0';
+    content.innerHTML = `
+    <section class="empty-cart">
+        <img  class="empty-cart-img" src="./assets/images/empty-cart.png" alt="empty-cart">
+        <div class="text-empty-cart">
+          <h4>Your cart is empty</h4><br>
+          <p class="text-empty">You can add items to your cart by clicking on the '+' button on the product page.</p>
+        </div>
+    
+      </section>`
+  }
+
+}
+
 btnPlus1.addEventListener("click", (e) =>{
   addProduct(1)
   
@@ -281,6 +302,10 @@ btnPlus3.addEventListener("click", (e) =>{
 
 checkoutBtn.addEventListener("mouseover", (e) =>{
   detectHoverCheckout()
+})
+
+checkoutBtn.addEventListener("click", (e) =>{
+  clickCheckoutStock()
 })
 
 
