@@ -46,8 +46,9 @@ const home = document.getElementById("home")
 const prod = document.getElementById("prod")
 const btnSum = document.getElementById ( 'add' )
 const emptyCart = document.getElementById("empty-cart")
-const content = document.getElementById("cart-content");
-
+const content = document.getElementById("cart-content")
+const checkoutBtn = document.getElementById("checkout")
+const checkoutIcon = document.getElementById("checkout-icon")
 
 //CHANGE THEME
 
@@ -253,6 +254,16 @@ function showProducts() {
  content.innerHTML = fragment
 }
 
+function detectHoverCheckout() {
+  if (cartProducts.length === 0) {
+    checkoutBtn.classList.add("checkout-none")
+    checkoutIcon.classList.add("checkout-none")
+  } else{
+    checkoutBtn.classList.remove("checkout-none")
+    checkoutIcon.classList.remove("checkout-none")
+  }
+}
+
 btnPlus1.addEventListener("click", (e) =>{
   addProduct(1)
   
@@ -266,6 +277,10 @@ btnPlus2.addEventListener("click", (e) =>{
 btnPlus3.addEventListener("click", (e) =>{
   addProduct(3)
   
+})
+
+checkoutBtn.addEventListener("mouseover", (e) =>{
+  detectHoverCheckout()
 })
 
 

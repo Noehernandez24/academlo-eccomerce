@@ -541,7 +541,6 @@ html{
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  cursor: pointer;
 }
 
 .chekout-button{
@@ -556,6 +555,7 @@ html{
   border: none;
   font-size: medium;
   width: 50%;
+  cursor: pointer;
 }
 
 
@@ -604,6 +604,10 @@ html{
 
 .hide{
   display: none;
+}
+
+.checkout-none{
+  cursor: not-allowed;
 }
 
 @media screen and (min-width: 1024px) {
