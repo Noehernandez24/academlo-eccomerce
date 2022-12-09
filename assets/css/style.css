@@ -576,6 +576,14 @@ html{
   gap: 10px;
 }
 
+.cart-stock > span{
+  color: var(--first-color);
+}
+
+.cart-subtotal{
+  color: var(--first-color);
+}
+
 .button-styles{
   width: 30px;
   height: 30px;
@@ -583,6 +591,7 @@ html{
 
 .remove-all{
   margin-left: 20px;
+  color: var(--first-color);
 }
 
 .bx-block{
