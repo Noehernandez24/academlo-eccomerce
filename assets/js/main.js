@@ -53,14 +53,49 @@ const checkoutIcon = document.getElementById("checkout-icon")
 //CHANGE THEME
 
 themeBtn.addEventListener( 'click', e => {
-  body.classList.toggle('darktheme')
+  // body.classList.toggle('darktheme')
+
+  if (body.classList.contains("darktheme")) {
+    body.classList.remove("darktheme")
+    window.localStorage.setItem("theme","ligth")
+  } else{
+    body.classList.add("darktheme")
+    window.localStorage.setItem("theme", "darktheme")
+  }
+ 
 
   if( themeBtn.classList.contains( 'bx-moon' )){
     themeBtn.classList.replace( 'bx-moon', 'bx-sun' )
+    window.localStorage.setItem("icon","bx-sun")
+    
   }else{
     themeBtn.classList.replace( 'bx-sun', 'bx-moon' )
+    window.localStorage.setItem("icon","bx-moon")
     }
   })
+  
+
+//VERIFICAR EL THEME EN LOCALSTORAGE
+
+
+const readLocalStorageTheme = () =>{
+  let theme = localStorage.getItem("theme")
+  let iconTheme = localStorage.getItem("icon")
+  let actualIcon = themeBtn.classList[1]
+
+  if (theme) {
+    if (theme === "darktheme") {
+      body.classList.add("darktheme")
+    } else{
+      body.classList.remove("darktheme")
+    }
+  }
+
+  if (iconTheme) {
+    themeBtn.classList.replace(actualIcon, iconTheme)
+  }
+
+}
 
 //OPEN VENTANAS
 
@@ -114,6 +149,7 @@ const loaderComponent = () =>{
 document.addEventListener("DOMContentLoaded", () => {
 
   loaderComponent();
+  readLocalStorageTheme();
 
 })
 
